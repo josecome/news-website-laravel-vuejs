@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('news_trigger', function (Blueprint $table) {
             $table->id();
+            $table->boolean('sent');
+            $table->date('sent_date');
+            $table->unsignedBigInteger('subscriber_id');
+            $table->unsignedBigInteger('news_id');
+            $table->unsignedBigInteger('edition_id');
+            $table->unsignedBigInteger('user_id');
+            /*$table->foreign('subscriber_id')->references('id')->on('subscriber')->onDelete('cascade');
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
+            $table->foreign('edition_id')->references('id')->on('edition')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');*/
             $table->timestamps();
         });
     }
