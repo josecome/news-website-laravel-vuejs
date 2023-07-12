@@ -3,7 +3,10 @@ import { Link } from '@inertiajs/vue3';
 import AppHead from '../Components/Head.vue'
 
 defineProps({
-    canLogin: {
+    news: {
+        type: Object,
+    },
+/*     canLogin: {
         type: Boolean,
     },
     canRegister: {
@@ -16,7 +19,7 @@ defineProps({
     phpVersion: {
         type: String,
         required: true,
-    },
+    }, */
 });
 </script>
 
