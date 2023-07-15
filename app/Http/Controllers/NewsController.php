@@ -16,4 +16,12 @@ class NewsController extends Controller
             'news' => $news
         ]);
     }
+    public function NewsById($id)
+    {
+        $news = News::find($id)->orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
+
+        return Inertia::render('Welcome', [
+            'news' => $news
+        ]);
+    }
 }

@@ -26,6 +26,7 @@ use Inertia\Inertia;
     ]);
 }); */
 Route::get('/', [NewsController::class, 'home']);
+Route::get('/news/{id}', [NewsController::class, 'NewsById']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
