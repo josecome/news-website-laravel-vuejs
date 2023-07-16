@@ -6,6 +6,9 @@ defineProps({
     news: {
         type: Object,
     },
+    breaking_news: {
+        type: Number,
+    }
 /*     canLogin: {
         type: Boolean,
     },
@@ -29,9 +32,9 @@ defineProps({
   <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="col-md-6 px-0">
       <h1 class="display-4 fst-italic">{{ news[0].title }}</h1>
-      <p class="lead my-3">{{ news[0].content.slice(1, 100) }}</p>
+      <p class="lead my-3">{{ news[breaking_news].content.slice(1, 100) }}</p>
       <p class="lead mb-0">
-        <Link :href="`/news/${ news[0].id }`">
+        <Link :href="`/news/${ news[breaking_news].id }`">
           Continue reading...
       </Link>
       </p>
