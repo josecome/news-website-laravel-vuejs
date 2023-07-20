@@ -8,6 +8,9 @@ defineProps({
     },
     breaking_news: {
         type: Number,
+    },
+    news_month_year: {
+        type: Object,
     }
 /*     canLogin: {
         type: Boolean,
@@ -35,8 +38,8 @@ defineProps({
       <p class="lead my-3">{{ news[breaking_news].content.slice(1, 100) }}</p>
       <p class="lead mb-0">
         <Link :href="`/news/${ news[breaking_news].id }`">
-          Continue reading...
-      </Link>
+           Continue reading...
+        </Link>
       </p>
     </div>
   </div>
@@ -79,9 +82,12 @@ defineProps({
       </h3>
 
       <article class="blog-post">
-        <div v-for="newss in news">
+        <div v-for="newss in news" :key="id">
             <h4 class="blog-post-title mb-1">{{ newss.title }}</h4>
             <span>{{ newss.content.slice(1, 100) }}</span>
+            <Link :href="`/news/${ newss.id }`">
+                Continue reading...
+            </Link>
             <p class="blog-post-meta">{{ newss.news_date }} by <a href="#">Jose</a></p>
         </div>
       </article>
@@ -102,18 +108,7 @@ defineProps({
         <div class="p-4">
           <h4 class="fst-italic">Archives</h4>
           <ol class="list-unstyled mb-0">
-            <li><a href="#">March 2021</a></li>
-            <li><a href="#">February 2021</a></li>
-            <li><a href="#">January 2021</a></li>
-            <li><a href="#">December 2020</a></li>
-            <li><a href="#">November 2020</a></li>
-            <li><a href="#">October 2020</a></li>
-            <li><a href="#">September 2020</a></li>
-            <li><a href="#">August 2020</a></li>
-            <li><a href="#">July 2020</a></li>
-            <li><a href="#">June 2020</a></li>
-            <li><a href="#">May 2020</a></li>
-            <li><a href="#">April 2020</a></li>
+            <li v-for="news_month_years in news_month_year"><a href="#">{{ news_month_years }}</a></li>
           </ol>
         </div>
 
