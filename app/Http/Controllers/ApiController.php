@@ -10,6 +10,7 @@ class ApiController extends Controller
     public function home()
     {
         $breaking_news = 0;
+        $featured_section = 1;
         $news = News::orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
 
         return response()->json([
