@@ -133,12 +133,10 @@ defineProps({
 
 </main>
 </template>
-
 <style>
     @import "bootstrap/dist/css/bootstrap.css";
     @import "bootstrap-icons/font/bootstrap-icons.css";
 </style>
-
 <style>
 /* stylelint-disable selector-list-comma-newline-after */
 

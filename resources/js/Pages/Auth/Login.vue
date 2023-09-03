@@ -33,31 +33,31 @@ const submit = () => {
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
-        <div id="login_div">
+        <div id="login_div" class="container d-flex align-items-center justify-content-center">
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Email" class="form-label" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
                     v-model="form.email"
                     required
                     autofocus
                     autocomplete="username"
+                    class="form-control"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Password" class="form-label" />
 
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="form-control"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -82,17 +82,15 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton  class="btn btn-primary" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
         </form>
         </div>
 </template>
-<style scoped>
-#login_div{
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
+<style>
+    @import "bootstrap/dist/css/bootstrap.css";
+    @import "bootstrap-icons/font/bootstrap-icons.css";
 </style>
+
