@@ -115,7 +115,7 @@ defineProps({
         <div class="p-4">
           <h4 class="fst-italic">Old News</h4>
           <ol class="list-unstyled mb-0">
-            <li v-for="news_month_years in news_month_year"><a href="#">{{ news_month_years }}</a></li>
+            <li v-for="news_month_years in news_month_year"><a href="#" style="text-decoration: none;">{{ news_month_years }}</a></li>
           </ol>
         </div>
 
