@@ -14,8 +14,12 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->post('/user', function (Request $request) {
+    //return $request->user();
+    return 'loggedin';
 });
-Route::get('/', [NewsController::class, 'home']);
-Route::get('/news/{id}', [NewsController::class, 'NewsById']);
+Route::middleware('cors')->group(function () {
+    Route::get('/', [ApiController::class, 'home']);
+    Route::get('/news/{id}', [ApiController::class, 'NewsById']);
+});
+
