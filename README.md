@@ -1,4 +1,4 @@
-# E-Commerce Webpage
+# News Webpage
 This project aim to demostrate how News webpage can be developed using PHP + Laravel + Inertia + Vuejs
 
 <img src="public/home.jpg">
