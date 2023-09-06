@@ -72,7 +72,7 @@ class NewsController extends Controller
     }
     public function NewsById($id)
     {
-        $news = News::find($id)->orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
+        $news = News::find($id)->get(['id', 'title', 'content', 'news_date']);
 
         return Inertia::render('News', [
             'news' => $news
