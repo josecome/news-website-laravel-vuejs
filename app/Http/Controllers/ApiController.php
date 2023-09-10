@@ -9,7 +9,7 @@ class ApiController extends Controller
 {
     public function home()
     {
-        $func_mth_yr = function($value) {
+        $func_mth_yr = function ($value) {
             $values = explode("-", $value);
             $month = (int) $values[1];
             $mth = "01";
@@ -31,8 +31,8 @@ class ApiController extends Controller
                     $mth = "May";
                     break;
                 case 6:
-                        $mth = "June";
-                        break;
+                    $mth = "June";
+                    break;
                 case 7:
                     $mth = "July";
                     break;
@@ -58,7 +58,7 @@ class ApiController extends Controller
         $featured_section = [1, 2];
         $news = News::orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
         $news_month_year = News::orderBy('news_date', 'desc')->pluck('news_date')->toArray();
-        $news_months_year = array_map($func_mth_yr, $news_month_year );
+        $news_months_year = array_map($func_mth_yr, $news_month_year);
 
         return response()->json([
             'news' => $news,
