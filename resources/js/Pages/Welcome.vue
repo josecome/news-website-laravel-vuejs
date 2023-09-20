@@ -1,6 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import AppHead from '../Components/Head.vue'
+import Footer from '../Components/Footer.vue'
 
 defineProps({
     news: {
@@ -146,6 +147,7 @@ defineProps({
         </div>
 
     </main>
+    <Footer />
 </template>
 <style>
 @import "bootstrap/dist/css/bootstrap.css";
