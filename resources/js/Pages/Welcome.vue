@@ -2,8 +2,12 @@
 import { Link } from '@inertiajs/vue3';
 import AppHead from '../Components/Head.vue'
 import Footer from '../Components/Footer.vue'
+//import { ref, onMounted } from 'vue'
 
 defineProps({
+    data: {
+        type: Object,
+    },
     news: {
         type: Object,
     },
@@ -31,6 +35,9 @@ defineProps({
             required: true,
         }, */
 });
+/*onMounted(() => {
+  console.log(data)
+})*/
 </script>
 
 <template>

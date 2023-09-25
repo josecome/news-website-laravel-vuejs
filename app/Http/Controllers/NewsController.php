@@ -13,61 +13,19 @@ class NewsController extends Controller
     public function home()
     {
         $func_mth_yr = function ($value) {
-            $values = explode("-", $value);
-            $month = (int) $values[1];
-            $mth = "01";
-
-            switch ($month) {
-                case 1:
-                    $mth = "January";
-                    break;
-                case 2:
-                    $mth = "February";
-                    break;
-                case 3:
-                    $mth = "March";
-                    break;
-                case 4:
-                    $mth = "April";
-                    break;
-                case 5:
-                    $mth = "May";
-                    break;
-                case 6:
-                    $mth = "June";
-                    break;
-                case 7:
-                    $mth = "July";
-                    break;
-                case 8:
-                    $mth = "August";
-                    break;
-                case 9:
-                    $mth = "September";
-                    break;
-                case 10:
-                    $mth = "October";
-                    break;
-                case 11:
-                    $mth = "November";
-                    break;
-                case 12:
-                    $mth = "December";
-                    break;
-            }
-            return $values[0] . "-" . $mth;
+            $dt = new Carbon($value);
+            return $dt->year . "-" . $dt->format('F');
         };
-        $breaking_news = 0;
-        $featured_section = [1, 2];
-        $news = News::orderBy('news_date', 'desc')->skip(0)->take(10)->get(['id', 'title', 'content', 'news_date']);
-        $news_month_year = News::orderBy('news_date', 'desc')->pluck('news_date')->toArray();
+
+        $news = News::orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
+        $news_month_year = $news->pluck('news_date')->all();
         $news_months_year = array_map($func_mth_yr, $news_month_year);
 
         return Inertia::render('Welcome', [
             'news' => $news,
-            'breaking_news' => $breaking_news,
-            'news_month_year' => $news_months_year,
-            'featured_section' => $featured_section,
+            'breaking_news' => 0,
+            'news_month_year' => array_unique($news_months_year),
+            'featured_section' => [1, 2],
         ]);
     }
     public function NewsById($id)
