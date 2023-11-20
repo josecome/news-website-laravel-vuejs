@@ -5,13 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class News_trigger extends Model
+class NewsMeta extends Model
 {
     use HasFactory;
-    protected $table = 'news_trigger';
+    protected $table = 'news_meta';
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+    public function news()
+    {
+        return $this->hasOne(News::class);
+    }
+
 }

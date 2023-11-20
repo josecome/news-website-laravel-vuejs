@@ -15,15 +15,10 @@ class NewsResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $func_mth_yr = function ($value) {
-            return $value;
-        };
-        //return parent::toArray($request);
         return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'content' => $this->content,
-            'news_date' => $this->news_date,
+            'news' => $this->collection,
+            'breaking_news' => 0,
+            'featured_section' => [0, 1],
         ];
     }
 }

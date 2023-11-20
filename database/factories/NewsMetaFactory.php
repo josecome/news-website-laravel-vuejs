@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Arr;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\News_meta>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class News_metaFactory extends Factory
+class NewsMetaFactory extends Factory
 {
     /**
      * Define the model's default state.
