@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\News;
@@ -17,7 +19,7 @@ class NewsController extends Controller
             return $dt->year . "-" . $dt->format('F');
         };
 
-        $news = News::orderBy('news_date', 'desc')->get(['id', 'title', 'content', 'news_date']);
+        $news = News::with('user')->orderBy('news_date', 'desc')->get();
         $news_month_year = $news->pluck('news_date')->all();
         $news_months_year = array_map($func_mth_yr, $news_month_year);
 
@@ -30,10 +32,20 @@ class NewsController extends Controller
     }
     public function NewsById($id)
     {
-        $news = News::find($id)->get(['id', 'title', 'content', 'news_date']);
+        $news = News::find($id)->with('user')->get();
+        $comments = News::find($id)->comments;
+        $likes = News::find($id)->likes;
+        $likes = Like::where('likeable_id', '=', $id)->where('likeable_type', '=', 'App\Models\News')->whereIn('type', ['like', 'love', 'sad'])->get();
+        $like = count($likes->where('type', 'like'));
+        $love = count($likes->where('type', 'love'));
+        $sad = count($likes->where('type', 'sad'));
 
         return Inertia::render('News', [
-            'news' => $news
+            'news' => $news,
+            'comments' => $comments,
+            'like'=> $like,
+            'love'=> $love,
+            'sad'=> $sad,
         ]);
     }
     private function monthAndYear($value)

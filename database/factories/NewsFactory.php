@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-use App\Models\News_meta;
+use App\Models\NewsMeta;
 use App\Models\Edition;
 use Illuminate\Support\Arr;
 
@@ -20,7 +20,7 @@ class NewsFactory extends Factory
      */
     public function definition(): array
     {
-        $news_meta = News_meta::pluck('id')->toArray(); //Extracts id values
+        $news_meta = NewsMeta::pluck('id')->toArray(); //Extracts id values
         $edition = Edition::pluck('id')->toArray();
         $users = User::pluck('id')->toArray();
         return [

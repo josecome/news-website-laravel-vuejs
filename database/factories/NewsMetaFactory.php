@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Arr;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NewsMeta>
  */
 class NewsMetaFactory extends Factory
 {

@@ -18,7 +18,7 @@ class LikeFactory extends Factory
     {
         $videos_id = \App\Models\News::pluck('id')->toArray();
         $type_of_like = ['like', 'love', 'sad'];
-        $likeable = ['App\Models\Video', 'App\Models\Comment'];
+        $likeable = ['App\Models\News', 'App\Models\Comment'];
         return [
                 'type' => $type_of_like[array_rand($type_of_like)],
                 'likeable_type' => $likeable[array_rand($likeable)],

@@ -20,7 +20,7 @@ class CommentFactory extends Factory
         $like_type = ['like', 'love', 'sad'];
         return [
             'comment' => $this->faker->text($maxNbChars = 100),
-            'video_id' => $videos_id[array_rand($videos_id)],
+            'news_id' => $videos_id[array_rand($videos_id)],
             'user_id' => random_int(1, 6),
         ];
     }

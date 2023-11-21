@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('news_meta', function (Blueprint $table) {
-            $table->string('type_of_loc', 40);
+            $table->string('type_of_loc', 40)->default('no type loc');
         });
     }
 

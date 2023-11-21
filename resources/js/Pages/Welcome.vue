@@ -115,7 +115,7 @@ defineProps({
                         <Link :href="`/news/${newss.id}`">
                         Continue reading...
                         </Link>
-                        <p class="blog-post-meta">{{ newss.news_date }} by <a href="#">Jose</a></p>
+                        <p class="blog-post-meta">{{ newss.news_date }} by <a href="#">{{ newss.user.name }}</a></p>
                     </div>
                 </article>
                 <nav class="blog-pagination" aria-label="Pagination">
