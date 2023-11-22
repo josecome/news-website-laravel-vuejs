@@ -22,7 +22,8 @@ class ApiController extends Controller
     }
     public function NewsById($id)
     {
-        $news = News::find($id)->with('user')->get();
+        return new NewsResource(News::findOrFail($id));
+        /*$news = News::find($id)->with('user')->get();
         $comments = News::find($id)->comments;
         $likes = News::find($id)->likes;
         $likes = Like::where('likeable_id', '=', $id)->where('likeable_type', '=', 'App\Models\News')->whereIn('type', ['like', 'love', 'sad'])->get();
@@ -36,6 +37,6 @@ class ApiController extends Controller
             'like'=> $like,
             'love'=> $love,
             'sad'=> $sad,
-        ]);
+        ]);*/
     }
 }
