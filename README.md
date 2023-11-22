@@ -5,7 +5,7 @@ This project aim to demostrate how News webpage can be developed using PHP + Lar
 
 Display clicked news
 
-<img src="public/news2.jpg">
+<img src="public/news.jpg">
 
 ## To run the project
 
